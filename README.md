@@ -1,4 +1,4 @@
-# CI/CD Pipeline Demo
+# Task Management Application
 
 This repository contains a full-stack application.
 
