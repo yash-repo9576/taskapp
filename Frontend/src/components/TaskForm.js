@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { API_URL } from '../config';
 
 function TaskForm() {
   const [title, setTitle] = useState('');
@@ -13,7 +12,7 @@ function TaskForm() {
     setSubmitting(true);
     
     try {
-      const response = await fetch(`${API_URL}/api/tasks`, {
+      const response = await fetch(`/api/tasks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

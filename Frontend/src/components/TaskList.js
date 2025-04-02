@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { API_URL } from '../config';
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
@@ -9,7 +8,7 @@ function TaskList() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch(`${API_URL}/api/tasks`);
+        const response = await fetch(`/api/tasks`);
         if (!response.ok) {
           throw new Error('Failed to fetch tasks');
         }
