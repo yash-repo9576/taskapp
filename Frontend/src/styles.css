@@ -23,6 +23,12 @@ body {
   color: white;
   text-align: center;
   border-radius: 5px 5px 0 0;
+  margin-bottom: 0;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 24px;
 }
 
 main {
@@ -32,17 +38,20 @@ main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.task-form, .task-list {
+/* Task Form Styles */
+.task-form {
   margin-bottom: 30px;
 }
 
-h2 {
+.task-form h2 {
   border-bottom: 2px solid #eee;
   padding-bottom: 10px;
   margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
 }
 
-form {
+.task-form form {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -51,26 +60,32 @@ form {
 .form-group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
 }
 
-label {
+.form-group label {
   margin-bottom: 5px;
   font-weight: bold;
+  color: #333;
 }
 
-input, textarea, select {
+.form-group input, 
+.form-group textarea, 
+.form-group select {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+  width: 100%;
 }
 
-textarea {
+.form-group textarea {
   min-height: 100px;
+  resize: vertical;
 }
 
-button {
-  background-color: #4caf50;
+.task-form button {
+  background-color: #4CAF50;
   color: white;
   border: none;
   padding: 12px;
@@ -78,54 +93,19 @@ button {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  width: 100%;
 }
 
-button:hover {
+.task-form button:hover {
   background-color: #45a049;
 }
 
-button:disabled {
+.task-form button:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
 }
 
-.task-list ul {
-  list-style: none;
-}
-
-.task-item {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 15px;
-  margin-bottom: 15px;
-  position: relative;
-}
-
-.task-status {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.status-pending {
-  background-color: #ffeeba;
-  border-left: 4px solid #ffc107;
-}
-
-.status-in-progress {
-  background-color: #b8daff;
-  border-left: 4px solid #007bff;
-}
-
-.status-completed {
-  background-color: #c3e6cb;
-  border-left: 4px solid #28a745;
-}
-
+/* Message Styles */
 .message {
   padding: 10px;
   margin-bottom: 15px;
@@ -144,13 +124,85 @@ button:disabled {
   border: 1px solid #f5c6cb;
 }
 
-footer {
-  text-align: center;
-  margin-top: 30px;
-  padding: 20px;
+/* Task List Styles */
+.task-list {
+  margin-bottom: 30px;
+}
+
+.task-list h2 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+.task-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  border: none;
+  border-left: 4px solid;
+}
+
+.task-item h3 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  padding-right: 80px; /* Make room for the status badge */
+}
+
+.task-item p {
+  margin-bottom: 5px;
   color: #666;
 }
 
+.task-status {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  border-left-color: #ffc107;
+}
+
+.status-pending .task-status {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.status-in-progress {
+  background-color: #cce5ff;
+  border-left-color: #007bff;
+}
+
+.status-in-progress .task-status {
+  background-color: #007bff;
+  color: white;
+}
+
+.status-completed {
+  background-color: #d4edda;
+  border-left-color: #28a745;
+}
+
+.status-completed .task-status {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Loading and Error States */
 .loading, .error {
   text-align: center;
   padding: 20px;
@@ -159,4 +211,37 @@ footer {
 
 .error {
   color: #721c24;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+  
+  .task-form, .task-list {
+    margin-bottom: 20px;
+  }
+  
+  .task-item {
+    padding: 12px;
+  }
+  
+  .task-status {
+    position: static;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .task-item h3 {
+    padding-right: 0;
+  }
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function TaskForm() {
+function TaskForm({ onTaskCreated }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [status, setStatus] = useState('Pending');
@@ -29,6 +29,9 @@ function TaskForm() {
       setDescription('');
       setStatus('Pending');
       setMessage({ type: 'success', text: 'Task created successfully!' });
+      
+      // Call the onTaskCreated function to refresh task list
+      onTaskCreated();
       
       // Clear message after 3 seconds
       setTimeout(() => setMessage(null), 3000);
